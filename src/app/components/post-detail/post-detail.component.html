@@ -1,0 +1,43 @@
+<mat-card *ngIf="post" class="detail-card">
+    <mat-card-header>
+      <mat-card-title>{{ post.title }}</mat-card-title>
+      <mat-card-subtitle>
+        <div class="meta-info">
+          <span><mat-icon>date_range</mat-icon> Publicado: {{ post.date | date }}</span>
+          <span><mat-icon>person</mat-icon> Autor: {{ post.author }}</span>
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <section class="study-details">
+        <h3><mat-icon>science</mat-icon> Detalles del estudio</h3>
+        <div *ngIf="post.studyType" class="detail-item">
+          <strong>Tipo de estudio:</strong> {{ post.studyType }}
+        </div>
+        <div *ngIf="post.patientCount" class="detail-item">
+          <strong>Pacientes incluidos:</strong> {{ post.patientCount | number }}
+        </div>
+      </section>
+  
+      <section class="content-section">
+        <h3><mat-icon>description</mat-icon> Contenido científico</h3>
+        <p>{{ post.content }}</p>
+      </section>
+  
+      <section *ngIf="post.medicalSources" class="sources-section">
+        <h3><mat-icon>link</mat-icon> Fuentes médicas</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let source of post.medicalSources">
+            <a [href]="source" target="_blank" rel="noopener">{{ source }}</a>
+          </mat-list-item>
+        </mat-list>
+      </section>
+    </mat-card-content>
+  
+    <mat-card-actions>
+      <button mat-raised-button color="accent" routerLink="/">
+        <mat-icon>arrow_back</mat-icon> Volver al listado
+      </button>
+    </mat-card-actions>
+  </mat-card>

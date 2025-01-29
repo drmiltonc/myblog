@@ -1,0 +1,11 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.example-card {
+  max-width: 400px;
+  margin: 2rem auto;
+}
